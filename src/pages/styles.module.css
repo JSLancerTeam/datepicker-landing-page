@@ -21,6 +21,11 @@
   justify-content: center;
 }
 
+.datepickerContainer {
+  width: 300px;
+  margin: 0 auto;
+}
+
 .features {
   display: flex;
   align-items: center;

@@ -7,6 +7,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import styles from './styles.module.css';
 import CodeHighLight from '../components/CodeHighlight';
 import DatePicker from 'react-google-flight-datepicker';
+import Props from '../components/Props';
 
 const demoCode = `import DatePicker from 'react-google-flight-datepicker';
 
@@ -21,37 +22,32 @@ const demoCode = `import DatePicker from 'react-google-flight-datepicker';
 
 function Home() {
   const context = useDocusaurusContext();
-  const {siteConfig = {}} = context;
+  const { siteConfig = {} } = context;
   return (
     <Layout
       title={`Hello from ${siteConfig.title}`}
-      description="Description will go into a meta tag in <head />">
+      description="Description will go into a meta tag in <head />"
+    >
       <header className={classnames('hero hero--primary', styles.heroBanner)}>
         <div className="container">
           <h1 className="hero__title">{siteConfig.title}</h1>
           <p className="hero__subtitle">{siteConfig.tagline}</p>
-          <DatePicker text="date picker" />
+          <div className={styles.datepickerContainer}>
+            <DatePicker text="date picker" />
+          </div>
+
         </div>
       </header>
       <main>
-
         <section className={styles.features}>
           <div className="container">
             <div className="row">
-              <div className={classnames('col col--4')}>
-                Desktop version
-              </div>
-              <div className={classnames('col col--8')}>
-                Videos
-              </div>
+              <div className={classnames('col col--4')}>Desktop version</div>
+              <div className={classnames('col col--8')}>Videos</div>
             </div>
             <div className="row">
-              <div className={classnames('col col--4')}>
-                Mobile version
-              </div>
-              <div className={classnames('col col--8')}>
-                Videos
-              </div>
+              <div className={classnames('col col--4')}>Mobile version</div>
+              <div className={classnames('col col--8')}>Videos</div>
             </div>
           </div>
         </section>
@@ -60,36 +56,123 @@ function Home() {
           <div class="container">
             <div className="row">
               <div className="col col--12">
-                <h2>Introduction</h2>
-
                 <h2>Installation</h2>
                 <CodeHighLight language="code">
                   npm install react-google-flight-datepicker
                 </CodeHighLight>
                 <br />
-
                 <h2>Usage</h2>
                 <CodeHighLight language="jsx">{demoCode}</CodeHighLight>
-                <br/>
-
+                <br />
                 <h2>Props</h2>
-                <b>startDate</b>
-                <p>Describe start date</p>
-                <b>endDate</b>
-                <p>Describe start date</p>
-                <b>endDate</b>
-                <p>Describe start date</p>
-                <b>endDate</b>
-                <p>Describe start date</p>
-                <b>endDate</b>
-                <p>Describe start date</p>
-                <b>endDate</b>
-                <p>Describe start date</p>
-
+                <Props
+                  props={[
+                    {
+                      name: 'startDate',
+                      type: 'Date',
+                      defaultValue: 'null',
+                      description: 'Selected start date'
+                    },
+                    {
+                      name: 'endDate',
+                      type: 'Date',
+                      defaultValue: 'null',
+                      description: 'Selected end date'
+                    },
+                    {
+                      name: 'dateFormat',
+                      type: 'String',
+                      defaultValue: 'M',
+                      description: (
+                        <>
+                          Display format for date. Check momentjs doc for
+                          information (
+                          <a
+                            target="_blank"
+                            href="https://momentjs.com/docs/#/displaying/"
+                          >
+                            https://momentjs.com/docs/#/displaying/
+                          </a>
+                          )
+                        </>
+                      )
+                    },
+                    {
+                      name: 'monthFormat',
+                      type: 'String',
+                      defaultValue: 'MMM YYYY',
+                      description: (
+                        <>
+                          Display format for month. Check momentjs doc for
+                          information (
+                          <a
+                            target="_blank"
+                            href="https://momentjs.com/docs/#/displaying/"
+                          >
+                            https://momentjs.com/docs/#/displaying/
+                          </a>
+                          )
+                        </>
+                      )
+                    },
+                    {
+                      name: 'onChange',
+                      type: 'Function',
+                      defaultValue: 'null',
+                      description:
+                        'Event handler that is called when startDate or endDate are changed'
+                    },
+                    {
+                      name: 'onChange',
+                      type: 'Function',
+                      defaultValue: 'null',
+                      description: 'Return a string (START_DATE, END_DATE) which indicate which text input is focused'
+                    },
+                    {
+                      name: 'minDate',
+                      type: 'Date',
+                      defaultValue: '1900 Jan 01',
+                      description: 'Minimum date that user can select'
+                    },
+                    {
+                      name: 'maxDate',
+                      type: 'Date',
+                      defaultValue: '2100 Jan 01',
+                      description: 'Maximum date that user can select'
+                    },
+                    {
+                      name: 'className',
+                      type: 'String',
+                      defaultValue: '',
+                      description: 'Custom CSS className for datepicker'
+                    },
+                    {
+                      name: 'disabled',
+                      type: 'String',
+                      defaultValue: 'false',
+                      description: 'Disable the datepicker'
+                    },
+                    {
+                      name: 'startDatePlaceholder',
+                      type: 'String',
+                      defaultValue: 'Start date',
+                      description: 'Placeholder text for startDate text input'
+                    },
+                    {
+                      name: 'endDatePlaceholder',
+                      type: 'String',
+                      defaultValue: 'End date',
+                      description: 'Placeholder text for endDate text input'
+                    }
+                  ]}
+                />
                 <h2>Author</h2>
-                David Tran
-                <br/>
-                Leo Phan
+                <strong>David Tran</strong><br />
+                <a href="https://github.com/davidtran">https://github.com/davidtran</a><br />
+                <a href="mailto:david@jslancer.com">david@jslancer.com</a><br />
+                <br />
+                <strong>Leo Phan</strong><br />
+                <a href="https://github.com/nhuthuy212507">https://github.com/nhuthuy212507</a>
               </div>
             </div>
           </div>

@@ -1,0 +1,19 @@
+.container {
+  display: block;
+  width: 100%;
+  overflow: auto;
+}
+
+.container tr {
+  background-color: white;
+  border-top: 1px solid #c6cbd1;
+}
+
+.container tr:nth-child(2n) {
+  background-color: #f6f8fa;
+}
+
+.container td, .container th {
+  padding: 6px 13px;
+  border: 1px solid #dfe2e5;
+}

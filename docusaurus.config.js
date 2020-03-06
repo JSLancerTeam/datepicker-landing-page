@@ -1,6 +1,6 @@
 module.exports = {
-  title: 'react-google-flight-datepicker',
-  tagline: 'A beautiful, mobile-friendly date picker',
+  title: '✈️  react-google-flight-datepicker',
+  tagline: 'Google Flight date-picker implemented in ReactJS',
   url: 'https://JSLancerTeam.github.io/datepicker',
   baseUrl: '/',
   favicon: 'img/favicon.ico',
