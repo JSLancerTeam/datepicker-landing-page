@@ -1,18 +1,17 @@
 module.exports = {
-  title: '✈️  react-google-flight-datepicker',
+  title: 'react-google-flight-datepicker',
   tagline: 'Google Flight date-picker implemented in ReactJS',
   url: 'https://JSLancerTeam.github.io/datepicker',
   baseUrl: '/',
-  favicon: 'img/favicon.ico',
+  favicon: 'img/favico.png',
   organizationName: 'jslancer', // Usually your GitHub org/user name.
   projectName: 'react-google-flight-datepicker', // Usually your repo name.
+  stylesheets: [
+    'https://fonts.googleapis.com/css?family=Roboto'
+  ],
   themeConfig: {
     navbar: {
-      title: 'react-google-flight-datepicker',
-      logo: {
-        alt: 'react-google-flight-datepicker',
-        src: 'img/logo.svg'
-      },
+      title: 'React Google Flight DatePicker',
       links: [
         {
           to: 'https://github.com/JSLancerTeam/react-google-flight-datepicker',
@@ -23,7 +22,7 @@ module.exports = {
     },
     footer: {
       style: 'dark',
-      copyright: `Copyright © ${new Date().getFullYear()} JSLancer. Built with Docusaurus.`
+      copyright: `Copyright © ${new Date().getFullYear()} JSLancer. Built with Docusaurus. Icons made by Freepik`
     }
   },
   presets: [

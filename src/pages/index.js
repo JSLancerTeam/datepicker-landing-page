@@ -1,9 +1,7 @@
 import React from 'react';
 import classnames from 'classnames';
 import Layout from '@theme/Layout';
-import Link from '@docusaurus/Link';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
-import useBaseUrl from '@docusaurus/useBaseUrl';
 import styles from './styles.module.css';
 import CodeHighLight from '../components/CodeHighlight';
 import DatePicker from 'react-google-flight-datepicker';
@@ -15,9 +13,14 @@ const demoCode = `import DatePicker from 'react-google-flight-datepicker';
   startDate={new Date()}
   endDate={new Date()}
   onChange={({startDate, endDate}) => onDateChange(startDate, endDate)}
+  minDate={new Date(1900, 0, 1)}
+  maxDate={new Date(2100, 0, 1)}
+  dateFormat="D"
   monthFormat="MMM YYYY"
-  dateRenderer={date => date.getDate()}
-  weekFormat="DDD"
+  startDatePlaceholder="Start Date"
+  endDatePlaceholder="End Date"
+  disabled={false}
+  className="my-own-class-name"
 />`;
 
 function Home() {
@@ -30,24 +33,22 @@ function Home() {
     >
       <header className={classnames('hero hero--primary', styles.heroBanner)}>
         <div className="container">
+          <img src="/img/plane.png" className={styles.heroImage} />
           <h1 className="hero__title">{siteConfig.title}</h1>
           <p className="hero__subtitle">{siteConfig.tagline}</p>
           <div className={styles.datepickerContainer}>
-            <DatePicker text="date picker" />
+            <DatePicker
+              startDatePlaceholder="Start Date"
+              endDatePlaceholder="End Date"
+            />
           </div>
-
         </div>
       </header>
       <main>
         <section className={styles.features}>
           <div className="container">
             <div className="row">
-              <div className={classnames('col col--4')}>Desktop version</div>
-              <div className={classnames('col col--8')}>Videos</div>
-            </div>
-            <div className="row">
-              <div className={classnames('col col--4')}>Mobile version</div>
-              <div className={classnames('col col--8')}>Videos</div>
+              <div className={classnames('col col--12')}></div>
             </div>
           </div>
         </section>
@@ -82,7 +83,7 @@ function Home() {
                     {
                       name: 'dateFormat',
                       type: 'String',
-                      defaultValue: 'M',
+                      defaultValue: 'D',
                       description: (
                         <>
                           Display format for date. Check momentjs doc for
@@ -123,10 +124,11 @@ function Home() {
                         'Event handler that is called when startDate or endDate are changed'
                     },
                     {
-                      name: 'onChange',
+                      name: 'onFocus',
                       type: 'Function',
                       defaultValue: 'null',
-                      description: 'Return a string (START_DATE, END_DATE) which indicate which text input is focused'
+                      description:
+                        'Return a string (START_DATE, END_DATE) which indicate which text input is focused'
                     },
                     {
                       name: 'minDate',
@@ -155,24 +157,32 @@ function Home() {
                     {
                       name: 'startDatePlaceholder',
                       type: 'String',
-                      defaultValue: 'Start date',
+                      defaultValue: 'Start Date',
                       description: 'Placeholder text for startDate text input'
                     },
                     {
                       name: 'endDatePlaceholder',
                       type: 'String',
-                      defaultValue: 'End date',
+                      defaultValue: 'End Date',
                       description: 'Placeholder text for endDate text input'
                     }
                   ]}
                 />
                 <h2>Author</h2>
-                <strong>David Tran</strong><br />
-                <a href="https://github.com/davidtran">https://github.com/davidtran</a><br />
-                <a href="mailto:david@jslancer.com">david@jslancer.com</a><br />
+                <strong>David Tran</strong>
                 <br />
-                <strong>Leo Phan</strong><br />
-                <a href="https://github.com/nhuthuy212507">https://github.com/nhuthuy212507</a>
+                <a href="https://github.com/davidtran">
+                  https://github.com/davidtran
+                </a>
+                <br />
+                <a href="mailto:david@jslancer.com">david@jslancer.com</a>
+                <br />
+                <br />
+                <strong>Leo Phan</strong>
+                <br />
+                <a href="https://github.com/nhuthuy212507">
+                  https://github.com/nhuthuy212507
+                </a>
               </div>
             </div>
           </div>
